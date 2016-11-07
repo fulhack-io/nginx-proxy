@@ -11,12 +11,8 @@ RUN apk add --no-cache ca-certificates bash\
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf \
  && sed -i 's/^http {/&\n    server_names_hash_bucket_size 128;/g' /etc/nginx/nginx.conf
 
-COPY go-wrapper /usr/local/bin/
-
 # Install Forego
-ADD forego.tar /opt/
-ENV GOPATH /opt/go
-ENV PATH $PATH:$GOPATH/bin
+COPY bin/forego /usr/local/bin/
 
 ENV DOCKER_GEN_VERSION 0.7.3
 
