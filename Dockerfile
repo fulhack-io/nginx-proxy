@@ -4,7 +4,7 @@ MAINTAINER klippo <klippo@deny.se>
 
 # Install dependencies
 RUN echo "http://nl.alpinelinux.org/alpine/v3.4/community/" >> /etc/apk/repositories
-RUN apk add --no-cache ca-certificates go git wget\
+RUN apk add --no-cache ca-certificates go git wget bash\
  && update-ca-certificates
 
 # Configure Nginx and apply fix for very long server names
@@ -29,5 +29,4 @@ ENV DOCKER_HOST unix:///tmp/docker.sock
 
 VOLUME ["/etc/nginx/certs"]
 
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["forego", "start", "-r"]
