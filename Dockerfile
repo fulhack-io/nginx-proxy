@@ -1,5 +1,6 @@
-FROM nginx:1.11.3
-MAINTAINER Jason Wilder mail@jasonwilder.com
+FROM fulhack/rpi-alpine-nginx:1.11.5
+MAINTAINER Jason Wilder <mail@jasonwilder.com>
+MAINTAINER klippo <klippo@deny.se>
 
 # Install wget and install/updates certificates
 RUN apt-get update \
