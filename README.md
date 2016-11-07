@@ -1,3 +1,4 @@
+###  READ THIS
 Fork from  fulhack/rpi-nginx-proxy that runs on raspberry pi
 
 Using docker image fulhack/rpi-alpine-nginx, and custom build go 1.6.3
