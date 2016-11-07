@@ -4,7 +4,7 @@ MAINTAINER klippo <klippo@deny.se>
 
 # Install dependencies
 RUN echo "http://nl.alpinelinux.org/alpine/v3.4/community/" >> /etc/apk/repositories
-RUN apk add --no-cache ca-certificates go git\
+RUN apk add --no-cache ca-certificates go git wget\
  && update-ca-certificates
 
 # Configure Nginx and apply fix for very long server names
@@ -18,9 +18,9 @@ RUN go get -u github.com/ddollar/forego
 
 ENV DOCKER_GEN_VERSION 0.7.3
 
-RUN wget https://github.com/jwilder/docker-gen/releases/download/$DOCKER_GEN_VERSION/docker-gen-linux-amd64-$DOCKER_GEN_VERSION.tar.gz \
- && tar -C /usr/local/bin -xvzf docker-gen-linux-amd64-$DOCKER_GEN_VERSION.tar.gz \
- && rm /docker-gen-linux-amd64-$DOCKER_GEN_VERSION.tar.gz
+RUN wget https://github.com/jwilder/docker-gen/releases/download/$DOCKER_GEN_VERSION/docker-gen-linux-armhf-$DOCKER_GEN_VERSION.tar.gz \
+ && tar -C /usr/local/bin -xvzf docker-gen-linux-armhf-$DOCKER_GEN_VERSION.tar.gz \
+ && rm /docker-gen-linux-armhf-$DOCKER_GEN_VERSION.tar.gz
 
 COPY . /app/
 WORKDIR /app/
